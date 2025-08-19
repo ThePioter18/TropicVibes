@@ -1,0 +1,62 @@
+@use './colors' as *;
+
+@mixin burgerBtn {
+	position: absolute;
+	right: 0;
+	height: 3px;
+	content: '';
+	background-color: $pure-white;
+	transition: width 0.3s;
+}
+
+@mixin heroImages($bgImg, $bgOverlay: null) {
+	background-image: $bgOverlay, url($bgImg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+// Mixin for the animated scroll arrow
+@mixin scroll-animation {
+	display: block;
+	position: absolute;
+	bottom: 3%;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 3rem;
+	color: $light-white;
+	transition: color 0.3s ease-in-out;
+	animation: bounce-top 2.2s infinite both;
+
+	&:hover {
+		color: $main-color;
+	}
+
+	@keyframes bounce-top {
+		0% {
+			transform: translateX(-50%) translateY(-25px);
+			transform-origin: center bottom;
+			animation-timing-function: ease-in;
+		}
+		25% {
+			transform: translateX(-50%) translateY(-25px);
+			transform-origin: center bottom;
+			animation-timing-function: ease-in;
+		}
+		50% {
+			transform: translateX(-50%) translateY(0);
+			transform-origin: center bottom;
+			animation-timing-function: ease-out;
+		}
+		75% {
+			transform: translateX(-50%) translateY(-25px);
+			transform-origin: center bottom;
+			animation-timing-function: ease-out;
+		}
+		100% {
+			transform: translateX(-50%) translateY(-25px);
+			transform-origin: center bottom;
+			animation-timing-function: ease-out;
+		}
+	}
+}

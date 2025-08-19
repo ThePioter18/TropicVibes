@@ -1,0 +1,548 @@
+@use './colors' as *;
+@use './components' as *;
+@use './mixins' as *;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.6rem;
+}
+
+//NAV
+.burger-btn {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	padding: 1em;
+	background: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+	z-index: 1000;
+
+	&:focus {
+		outline: none;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-radius: 8px;
+	}
+
+	&:hover {
+		.burger-btn__bars::after,
+		.burger-btn__bars::before {
+			width: 100%;
+		}
+	}
+
+	&__box {
+		position: relative;
+		width: 40px;
+		height: 30px;
+	}
+
+	&__bars,
+	&__bars:after,
+	&__bars:before {
+		@include burgerBtn;
+	}
+
+	&__bars {
+		width: 100%;
+		&::after {
+			top: 13px;
+			width: 60%;
+		}
+		&::before {
+			top: 27px;
+			width: 30%;
+			transition-delay: 0.1s;
+		}
+	}
+}
+
+//HEADER
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 100;
+
+	&__logo {
+		position: relative;
+		display: flex;
+		align-items: flex-end;
+		padding: 2em;
+
+		img {
+			position: relative;
+			height: 90px;
+			z-index: 1;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 28px;
+			left: 30px;
+			width: 60%;
+			height: 60%;
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 30% 70% 60% 40% / 40% 60% 30% 70%;
+			box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+			filter: brightness(1.1);
+			z-index: 0;
+		}
+	}
+
+	&__title-logo {
+		position: absolute;
+		left: 80px;
+		bottom: 35px;
+		font-family: 'Bebas Neue', cursive;
+		font-size: 2rem;
+
+		span {
+			font-weight: bold;
+		}
+	}
+
+	&__nav {
+		position: fixed;
+		top: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		width: 100%;
+		transform: translateX(100%);
+		transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+		background: $light-blue-gradient-solid;
+		z-index: 100;
+
+		&--active {
+			transform: translateX(0);
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		list-style: none;
+	}
+	&__item {
+		text-transform: uppercase;
+		letter-spacing: 5px;
+	}
+	&__link {
+		position: relative;
+		display: block;
+		margin: 0.5em 0;
+		padding: 0.5em 2em;
+		font-size: 2.8rem;
+		color: $pure-white;
+		text-decoration: none;
+		font-weight: bold;
+		transition: color 0.3s;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 3px;
+			height: 100%;
+			background-color: $pure-white;
+			transform: scaleY(0);
+			transition: transform 0.3s;
+		}
+		&:hover::before {
+			transform: scaleY(1);
+		}
+	}
+	&__link:hover {
+		color: $third-color;
+	}
+}
+
+@keyframes navItemsAnimation {
+	from {
+		transform: translateX(200%);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}
+
+.nav-items-animation {
+	animation: navItemsAnimation 1s both;
+}
+
+/* HERO SECTION */
+.hero {
+	position: relative;
+	height: 100vh;
+	text-align: center;
+	color: $pure-white;
+	width: 100%;
+	overflow: hidden;
+
+	&__mask-container {
+		width: 100%;
+		height: 100%;
+		@include heroImages('../assets/img/maldives-small.jpg');
+		background-attachment: scroll;
+
+		transition: mask-size 0.1s ease, -webkit-mask-size 0.1s ease, opacity 0.3s ease;
+	}
+
+	&__circle-text {
+		position: absolute;
+		bottom: 20%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 140px;
+		height: 50px;
+		font-size: 1rem;
+		font-weight: 500;
+	}
+
+	&__circle-text span {
+		position: absolute;
+		left: 50%;
+		transform-origin: 0px 40px;
+	}
+
+	.hero__circle-text span:nth-child(1) {
+		transform: rotate(-75deg);
+	} /* S */
+	.hero__circle-text span:nth-child(2) {
+		transform: rotate(-60deg);
+	} /* C */
+	.hero__circle-text span:nth-child(3) {
+		transform: rotate(-45deg);
+	} /* R */
+	.hero__circle-text span:nth-child(4) {
+		transform: rotate(-30deg);
+	} /* O */
+	.hero__circle-text span:nth-child(5) {
+		transform: rotate(-15deg);
+	} /* L */
+	.hero__circle-text span:nth-child(6) {
+		transform: rotate(0deg);
+	} /* L */
+	.hero__circle-text span:nth-child(7) {
+		transform: rotate(15deg);
+	} /* D */
+	.hero__circle-text span:nth-child(8) {
+		transform: rotate(30deg);
+	} /* O */
+	.hero__circle-text span:nth-child(9) {
+		transform: rotate(45deg);
+	} /* W */
+	.hero__circle-text span:nth-child(10) {
+		transform: rotate(60deg);
+	} /* N */
+
+	&__scroll-down {
+		position: absolute;
+		bottom: 15%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 40px;
+		height: 70px;
+		background-color: $secondary-color;
+		border-radius: 50px;
+		text-decoration: none;
+		padding: 10px 20px;
+
+		.ti-chevrons-down {
+			@include scroll-animation;
+			transition: color 0.3s;
+		}
+
+		&:hover .ti-chevrons-down {
+			color: $third-color;
+		}
+	}
+
+	&__content {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		backdrop-filter: blur(8px);
+		border-radius: 20px;
+		padding: 40px 20px;
+		margin: auto;
+		width: fit-content;
+		max-height: 44vh;
+		height: auto;
+	}
+
+	&__title {
+		font-family: 'Dancing Script', cursive;
+		font-size: 4.8rem;
+		font-weight: 300;
+	}
+
+	&__subtitle {
+		font-size: 1.4rem;
+		margin-top: 0.8em;
+	}
+
+	&__btn {
+		margin-top: 1em;
+		padding: 0.8em 1.6em;
+		font-size: 1.4rem;
+		background-color: $pure-white;
+		border: none;
+		border-radius: 8px;
+		color: $dark;
+		text-decoration: none;
+		text-transform: uppercase;
+		cursor: pointer;
+		z-index: 1000;
+
+		&::before {
+			background-color: $light-white;
+		}
+	}
+
+	.hero__shadow {
+		position: absolute;
+		inset: 0;
+		background: $blue-gradient;
+		background-size: 95% 95%;
+		background-position: center;
+		opacity: 1;
+		z-index: -1;
+	}
+}
+
+// .aboutus {
+// 	padding: 100px 20px;
+// 	background-color: #121212;
+// 	position: relative;
+
+// 	&__content {
+// 		max-width: 1200px;
+// 		margin: 0 auto;
+// 		text-align: center;
+// 	}
+
+// 	&__title {
+// 		font-size: 3rem;
+// 		margin-bottom: 30px;
+// 		color: #fff;
+// 	}
+
+// 	&__text {
+// 		font-size: 1.2rem;
+// 		line-height: 1.6;
+// 		color: #ccc;
+// 	}
+// }
+
+// DREAMS SECTION
+.dreams {
+	&__box {
+		display: flex;
+		flex-direction: column;
+		margin: 2em 0;
+	}
+
+	&__img {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+
+	&__title {
+		margin-bottom: 0.5em;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+	}
+}
+
+// HERO-IMG
+.hero-img {
+	position: relative;
+	padding: 10em 2em;
+	@include heroImages('../assets/img/tahiti-small.jpg', $blue-gradient);
+	text-align: center;
+	color: $pure-white;
+	overflow: hidden;
+
+	&__title {
+		font-family: 'Dancing Script', cursive;
+		margin-bottom: 0.5em;
+		font-size: 4.8rem;
+	}
+
+	&__text {
+		padding: 1em 0;
+	}
+}
+
+/* RESPONSIVE MEDIA*/
+@media (min-width: 576px) {
+	.dreams {
+		&__box {
+			flex-direction: row;
+			justify-content: space-between;
+
+			&-text {
+				width: 55%;
+
+				&--right {
+					text-align: right;
+				}
+			}
+
+			&-img {
+				width: 40%;
+
+				&--right {
+					order: 1;
+				}
+			}
+		}
+
+		&__img {
+			margin-bottom: 0;
+			max-height: 300px;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.white-block {
+		height: 50px;
+		width: 45%;
+	}
+	.hero {
+		&__title {
+			font-size: 6rem;
+		}
+
+		&__subtitle {
+			font-size: 2rem;
+		}
+
+		&__btn {
+			margin-top: 2em;
+			font-size: 1.6rem;
+		}
+	}
+
+	.dreams {
+		&__text {
+			font-size: 1.8rem;
+		}
+	}
+
+	.hero-img {
+		padding: 30em 2em;
+
+		hr {
+			margin: 0 auto;
+			width: 70%;
+		}
+
+		&__text {
+			font-size: 2rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.burger-btn {
+		top: 50px;
+		right: 50px;
+	}
+
+	.hero {
+		&__mask-container {
+			background-image: url('../assets/img/maldives-big.jpg');
+			-webkit-mask-image: url('../assets/img/maldives-big.svg');
+			mask-image: url('../assets/img/maldives-big.svg');
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			-webkit-mask-position: center;
+			mask-position: center;
+			-webkit-mask-size: 90vw;
+			mask-size: 90vw;
+		}
+	}
+
+	.header,
+	.hero__content,
+	.hero__btn {
+		opacity: 0;
+		z-index: -1;
+		transform: translateY(30px);
+		transition: opacity 0.6s ease, transform 0.6s ease;
+	}
+
+	.header {
+		&__link {
+			font-size: 3.8rem;
+		}
+	}
+
+	.dreams {
+		&__box {
+			margin: 5em 0;
+
+			&-text {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				margin-bottom: 2.5em;
+			}
+		}
+
+		&__title {
+			font-size: 3rem;
+		}
+
+		&__text {
+			font-size: 2rem;
+		}
+	}
+
+	.hero-img {
+		padding: 40em 2em;
+
+		background-image: $blue-gradient, url('../assets/img/tahiti-big.jpg');
+
+		&__title {
+			font-size: 7.2rem;
+		}
+
+		hr {
+			width: 60%;
+			max-width: 900px;
+		}
+	}
+}
