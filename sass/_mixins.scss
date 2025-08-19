@@ -16,6 +16,12 @@
 	background-attachment: fixed;
 }
 
+@mixin islandsCardStyles() {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
 // Mixin for the animated scroll arrow
 @mixin scroll-animation {
 	display: block;
