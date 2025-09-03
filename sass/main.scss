@@ -583,7 +583,7 @@ body {
 .reviews {
 	.swiper {
 		padding: 0 2em 60px 2em;
-		z-index: -1;
+		z-index: 0; //to display the menu correctly
 
 		@media (min-width: 768px) {
 			padding: 0 0.5em 60px 0.5em;
