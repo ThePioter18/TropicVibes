@@ -1,4 +1,5 @@
 @use './colors' as *;
+@use './mixins' as *;
 
 .wrapper {
 	margin: 0 auto;
@@ -8,20 +9,26 @@
 
 .white-block {
 	position: absolute;
-	height: 40px;
-	width: 60%;
+	height: 60px;
+	width: 100%;
 	background-color: $pure-white;
 
 	&-left {
 		bottom: 0;
-		left: -50px;
-		transform: skew(45deg);
+		left: 0;
+		@include backgroundkWaves();
 	}
-
+	&-left--reverse {
+		bottom: 0;
+		right: 0;
+		transform: rotateY(180deg);
+		@include backgroundkWaves();
+	}
 	&-right {
 		top: 0;
-		right: -50px;
-		transform: skew(45deg);
+		right: 0;
+		transform: rotate(180deg);
+		@include backgroundkWaves();
 	}
 }
 

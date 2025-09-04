@@ -44,7 +44,7 @@
                     <a href="#islands" class="header__link">Wyspy</a>
                 </li>
                 <li class="header__item">
-                    <a href="#prices" class="header__link">Cennik i oferty</a>
+                    <a href="#offers" class="header__link">Cennik i oferty</a>
                 </li>
                 <li class="header__item">
                     <a href="#reviews" class="header__link">Opinie</a>
@@ -88,11 +88,12 @@
         </div>
         <div class="hero__shadow"></div>
 
-        <div class="white-block white-block-left"></div>
+        <div class="white-block white-block-left "></div>
+        <div class="white-block white-block-left--reverse"></div>
     </section>
 
     <main class="main">
-        <section class="dreams section-padding section white-section">
+        <section class="dreams section-padding section white-section" id="aboutus">
             <div class="wrapper">
                 <h2 class="section-heading">Spełniaj marzenia</h2>
 
@@ -346,6 +347,34 @@
                 <div class="swiper-button-next"></div>
             </div>
 
+
+        </section>
+
+        <section class="contact section-padding section white-section" id="contact">
+
+            <div class="white-block white-block-right"></div>
+            <div class="white-block white-block-left"></div>
+
+            <h2 class="section-heading">Skontaktuj sie z nami</h2>
+
+            <div class="wrapper">
+                <form action="" class="contact__form">
+                    <div class="contact__form-top">
+                        <label for="name" class="contact__form-label">Imię i nazwisko:</label>
+                        <input type="text" class="contact__form-input" id="name">
+
+                        <label for="email" class="contact__form-label">Adres e-mail:</label>
+                        <input type="text" class="contact__form-input" id="email">
+                    </div>
+
+
+                    <label for="msg" class="contact__form-label">Wiadomość:</label>
+                    <textarea class="contact__form-textarea" id="msg" cols="30" rows="10"></textarea>
+
+                    <button type="submit" class="contact__form-btn btn-special-animation">Wyślij</button>
+
+                </form>
+            </div>
 
         </section>
 

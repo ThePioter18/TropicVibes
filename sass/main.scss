@@ -344,11 +344,18 @@ body {
 		display: flex;
 		flex-direction: column;
 		margin: 2em 0;
+
+		&-img {
+			&--right {
+				transform: rotateY(180deg);
+			}
+		}
 	}
 
 	&__img {
 		width: 100%;
 		margin-bottom: 1em;
+		border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 	}
 
 	&__title {
@@ -735,6 +742,54 @@ body {
 	.swiper-button-prev::after,
 	.swiper-button-next::after {
 		font-size: 3.5rem;
+	}
+}
+
+// CONTACT
+
+.contact {
+	position: relative;
+	background-color: $light-white;
+	overflow: hidden;
+
+	&__form,
+	&__form-top {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__form-label {
+		margin-bottom: 0.5em;
+		text-transform: uppercase;
+	}
+
+	&__form-input {
+		@include contactForm;
+	}
+
+	&__form-textarea {
+		@include contactForm;
+
+		max-width: 100%;
+		min-width: 100%;
+		width: 100%;
+		min-height: 150px;
+	}
+
+	&__form-btn {
+		align-self: flex-end;
+		padding: 1em;
+		width: 100%;
+		max-width: 300px;
+		color: $pure-white;
+		border: none;
+		border-radius: 8px;
+		background-color: $main-color;
+		cursor: pointer;
+
+		&::before {
+			background-color: $secondary-color;
+		}
 	}
 }
 
