@@ -1,0 +1,15 @@
+{
+	"name": "tropicvibes",
+	"version": "1.0.0",
+	"description": "Website for TropicVibes",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ThePioter18/TropicVibes.git"
+	},
+	"keywords": [],
+	"author": "Piotr Rucki",
+	"license": "ISC",
+	"dependencies": {
+		"nodemailer": "^7.0.9"
+	}
+}
