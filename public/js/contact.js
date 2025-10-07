@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	form.addEventListener('submit', async e => {
 		e.preventDefault();
 
-		const fullName = form.fullName.value;
-		const email = form.email.value;
-		const message = form.message.value;
+		const fullName = form.querySelector('#full-name').value;
+		const email = form.querySelector('#email').value;
+		const message = form.querySelector('#message').value;
 
-		const res = await fetch(`${CONFIG.baseURL}/api/contact`, {
+		const res = await fetch('/.netlify/functions/contact', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ fullName, email, message }),
