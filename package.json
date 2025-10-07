@@ -14,5 +14,8 @@
 	"license": "ISC",
 	"dependencies": {
 		"nodemailer": "^7.0.9"
+	},
+	"devDependencies": {
+		"sass": "^1.93.2"
 	}
 }
