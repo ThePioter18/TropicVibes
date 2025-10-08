@@ -22,13 +22,13 @@ export const handler = async event => {
 		});
 
 		await transporter.sendMail({
-			from: `TrpicVibes <${process.env.CONTACT_EMAIL}>`,
+			from: `TropicVibes <${process.env.CONTACT_EMAIL}>`,
 			to: process.env.CONTACT_EMAIL,
 			replyTo: emailClient,
-			subject: `Wiadomość od ${fullName}`,
+			subject: `📩 Wiadomość od ${fullName}`,
 			text: messageClient,
 			html: `
-   				 	<p><strong>Od:</strong>${fullName} <${emailClient}></p>
+   				 	<p><strong>Od:</strong> ${fullName} &lt;${emailClient}&gt;</p>
     				<p><strong>Wiadomość:</strong></p>
     				<p>${messageClient}</p>
   					`,
