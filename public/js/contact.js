@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		e.preventDefault();
 
 		const fullName = form.querySelector('#full-name').value;
-		const email = form.querySelector('#email').value;
-		const message = form.querySelector('#message').value;
+		const emailClient = form.querySelector('#email').value;
+		const messageClient = form.querySelector('#message').value;
 
 		const res = await fetch('/.netlify/functions/contact', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ fullName, email, message }),
+			body: JSON.stringify({ fullName, emailClient, messageClient }),
 		});
 
 		const result = await res.json();
