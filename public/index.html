@@ -35,7 +35,7 @@
             <img src="assets/logo/logo-palmtree-loop-cycle.gif" alt="Logo Tropic Vibes">
             <p class="header__title-logo">Tropic<span>Vibes</span></p>
         </div>
-        <nav class="header__nav">
+        <nav class="header__nav" id="main-nav">
             <ul class="header__list">
                 <li class="header__item">
                     <a href="#aboutus" class="header__link">O nas</a>
@@ -54,7 +54,7 @@
                 </li>
             </ul>
         </nav>
-        <button class="burger-btn">
+        <button class="burger-btn" aria-label="Otwórz menu nawigacyjne" aria-expanded="false" aria-controls="main-nav">
             <div class="burger-btn__box">
                 <div class="burger-btn__bars"></div>
             </div>
@@ -77,7 +77,7 @@
             <span>W</span>
             <span>N</span>
         </span>
-        <a href="#aboutus" class="hero__scroll-down">
+        <a href="#aboutus" class="hero__scroll-down" aria-label="Przewiń w dół do sekcji O nas">
             <i class="ti ti-chevrons-down"></i>
         </a>
         <div class="hero__content" data-animate>
@@ -360,7 +360,7 @@
             <div class="wrapper">
                 <form action="" class="contact__form">
                     <div class="contact__form-top">
-                        <label for="name" class="contact__form-label">Imię i nazwisko:</label>
+                        <label for="full-name" class="contact__form-label">Imię i nazwisko:</label>
                         <input type="text" class="contact__form-input" id="full-name">
 
                         <label for="email" class="contact__form-label">Adres e-mail:</label>
@@ -392,11 +392,17 @@
                         Dołącz do naszej społeczności i pozwól, by codzienność miała trochę więcej palmowego klimatu.
                     </p>
                     <div class="footer__box-social">
-                        <a href="https://x.com/" target="_blank" class="footer__box-link"><i class="ti ti-brand-x"></i>
+                        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="footer__box-link"
+                            aria-label="Odwiedź nasz profil na X (otwiera się w nowej karcie)"><i
+                                class="ti ti-brand-x"></i>
                         </a>
-                        <a href="https://www.facebook.com/" target="_blank" class="footer__box-link"><i
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+                            class="footer__box-link"
+                            aria-label="Odwiedź nasz profil na Facebooku (otwiera się w nowej karcie)"><i
                                 class="ti ti-brand-facebook"></i> </a>
-                        <a href="https://www.instagram.com/" target="_blank" class="footer__box-link"><i><i
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                            class="footer__box-link"
+                            aria-label="Odwiedź nasz profil na Instagramie (otwiera się w nowej karcie)"><i><i
                                     class="ti ti-brand-instagram"></i></i></a>
                     </div>
                 </div>
